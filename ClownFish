@@ -1,0 +1,54 @@
+
+ 
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "BaconBoss Hub | Clownfish Adventures", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+   _G.segg = "Green Alien Capsule"
+   _G.egg = true
+
+   function egg()
+         while _G.egg == true do
+         game:GetService("ReplicatedStorage").Remotes.OpenCrate:FireServer(_G.segg,1)
+         wait(0)
+        end
+    end
+        
+    local MainTab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    MainTab:AddButton({
+        Name = "Script Tp To Space World",
+        Callback = function()
+             loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubIngameUgcLimiteds.lua"))()
+          end    
+    })
+
+    MainTab:AddButton({
+        Name = "Script Auto Farm",
+        Callback = function()
+             loadstring(game:HttpGet('https://raw.githubusercontent.com/TrickyAH/Scripts/main/Clownfish%20Adventures'))()
+          end    
+    })
+    
+    MainTab:AddToggle({
+        Name = "Auto Open",
+        Default = false,
+        Callback = function(Value)
+            _G.egg = Value
+            egg()
+        end    
+    })
+
+    MainTab:AddDropdown({
+        Name = "Select Egg",
+        Default = "Green Alien Capsule",
+        Options = {"Green Alien Capsule", "Yellow Alien Capsule", "Blue Alien Capsule", "Red Alien Capsule", "Ultra Green Alien Capsule", "Ultra Blue Alien Capsule", "Ultra Yellow Alien Capsule", "Ultra Red Alien Capsule"},
+        Callback = function(Value)
+            _G.segg = Value  
+        end    
+    })
+
+
